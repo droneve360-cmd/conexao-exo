@@ -278,6 +278,7 @@ body.focus .nav .btn{margin:0}
 @media (max-width:900px){.trail.has-img{grid-template-columns:1fr} .trail-img{aspect-ratio:16/9}}
 @media (max-width:640px){.cat-item.has-img{grid-template-columns:1fr} .cat-img{width:100%; aspect-ratio:16/9}}
 @media (max-width:1060px){ .nav .btn-wa{display:none !important} }
+.tag-rev{display:none !important}
 </style>
 </head>
 <body>
@@ -871,7 +872,7 @@ function renderCatalog(filter){
         const href = v.link || wa(`Olá! Vim pelo site da Conexão EXO e quero saber mais sobre: ${v.nome}.`);
         const ext = v.link ? '' : ' target="_blank" rel="noopener"';
         const cta = v.link ? 'Ver detalhes' : 'Consultar no WhatsApp';
-        return `<li class="cat-item${HAS_IMG(v) ? ' has-img' : ''}">${HAS_IMG(v) ? `<img class="cat-img" src="${v.img}" alt="${esc(v.nome)}" loading="lazy">` : ''}<div><h3>${esc(v.nome)}${v.revisar ? ' <span class="tag-rev" title="Aguardando confirmação do cliente">revisar</span>' : ''}</h3><p>${esc(v.resumo)}</p></div>
+        return `<li class="cat-item${HAS_IMG(v) ? ' has-img' : ''}">${HAS_IMG(v) ? `<img class="cat-img" src="${v.img}" alt="${esc(v.nome)}" loading="lazy">` : ''}<div><h3>${esc(v.nome)}</h3><p>${esc(v.resumo)}</p></div>
         <a class="lnk" href="${href}"${ext}>${v.link ? '' : ICON('wa')}${cta}</a></li>`;
       }).join('') + `</ul>`;
     });
